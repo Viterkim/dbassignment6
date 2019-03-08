@@ -41,13 +41,12 @@ We add indexes for office_city on the office table & customer_city on the custom
 
 1. using grouping
 ```
-SELECT offices.officeCode, orderdetails.orderNumber, sum(orderdetails.quantityOrdered * orderdetails.priceEach) AS orderPrice FROM orderdetails
-INNER JOIN orders ON orderdetails.orderNumber = orders.orderNumber
-INNER JOIN customers ON orders.customerNumber = customers.customerNumber
+SELECT offices.officeCode, sum(payments.amount) as paymentPrice, max(payments.amount) as maxSingle FROM payments
+INNER JOIN customers ON payments.customerNumber = customers.customerNumber
 INNER JOIN employees ON customers.salesRepEmployeeNumber = employees.employeeNumber
 INNER JOIN offices ON employees.officeCode = offices.officeCode
-GROUP BY orderNumber, officeCode
-ORDER BY officeCode
+GROUP BY offices.officeCode
+ORDER BY paymentPrice DESC;
 
 ```
 
@@ -58,5 +57,19 @@ ORDER BY officeCode
 
 ## Exc 4
 
-
+```
+SELECT DisplayName, Title FROM posts INNER JOIN users ON posts.OwnerUserId = users.Id where Title LIKE '%grounds%' 
+```
+![Execution Plan2](/opg4.png "Execution Plan2")
 ## Exc 5
+In order to create the index use the following script:
+```
+ALTER TABLE posts  
+ADD FULLTEXT(Title)
+```
+
+And then run:
+
+```
+SELECT DisplayName, Title FROM posts INNER JOIN users ON posts.OwnerUserId = users.Id WHERE MATCH(Title) AGAINST ('grounds' IN natural language mode)
+```
