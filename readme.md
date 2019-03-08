@@ -60,7 +60,7 @@ ORDER BY paymentPrice DESC;
 ```
 SELECT DisplayName, Title FROM posts INNER JOIN users ON posts.OwnerUserId = users.Id where Title LIKE '%grounds%' 
 ```
-![Execution Plan2](/opg4.png "Execution Plan2")
+![Execution Plan2](/exc4/opg4.png "Execution Plan2")
 ## Exc 5
 In order to create the index use the following script:
 ```
