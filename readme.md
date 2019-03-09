@@ -3,7 +3,10 @@ Made by Viktor Kim Christiansen, Chris Rosendorf & William Pfaffe
 # Overview
 School assignment with focus on performance with sample databases.
 1. Run the DB with Docker `docker run --rm --name my_mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=tropaadet -d mysql:latest`
-2. TODO ADD INSTRUCTIONS AND SCRIPT FOR ADDING SAMPLE DATABASES!!!
+2. Connect with Workbench to `localhost` with `tropaadet` as the password¨
+3. Import the base databases `classicmodels.sql` & `stackflow.sql` in workbench. (Left panel -> Data Import/Reuse -> Import from Self-Container File -> Start Import)
+4. Paste in the queries
+5. WHEN YOU ARE DONE: Stop & Remove the Docker container ``docker stop my_mysql`
 
 Overview of classicmodels
 ![classicmodels](classicmodels.png "classicmodels")
