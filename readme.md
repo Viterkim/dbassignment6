@@ -49,19 +49,14 @@ GROUP BY offices.officeCode
 ORDER BY paymentPrice DESC;
 
 ```
-
-2. using windowing
-```
-
-```
-
 ## Exc 4
-
+### In the stackexchange forum for coffee (coffee.stackexchange.com), write a query which return the displayName and title of all posts which with the word groundsin the title.
 ```
 SELECT DisplayName, Title FROM posts INNER JOIN users ON posts.OwnerUserId = users.Id where Title LIKE '%grounds%' 
 ```
 ![Execution Plan2](/exc4/opg4.png "Execution Plan2")
 ## Exc 5
+### Add a full text index to the posts table and change the query from exercise 4 so it no longer scans the entire posts table.
 In order to create the index use the following script:
 ```
 ALTER TABLE posts  
