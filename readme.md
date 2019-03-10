@@ -13,7 +13,7 @@ Overview of classicmodels
 
 
 # Prequisites
-We were unable to import the StackExchange files into our Docker Container. We resorted to running it outside a container, running the command in the  `stackexchange.sql` file after having downloaded the xml files onto our droplet:
+We were unable to import the StackExchange files into our Docker Container. We resorted to running it outside a container, running the command in the  `stackexchange.sql` file after having downloaded the xml files onto our droplet, or you can import them directly through our dump called `stackdump.sql`
 
 The files were extracted onto root/home/[FILES HERE]
 
